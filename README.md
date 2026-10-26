@@ -1,5 +1,7 @@
 # leavs 公共 APT 软件源
 
+维护交接与排障说明见 [HANDOVER.md](HANDOVER.md)。
+
 统一入口：**https://leavs.github.io/apt/**。这是多个工具共用的公开软件源，源码和构建流程仍放在各自项目仓库。
 
 ## 客户端安装
