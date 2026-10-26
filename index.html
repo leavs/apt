@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>leavs 公共 APT 软件源</title>
+<style>body{font:16px/1.7 system-ui;max-width:920px;margin:48px auto;padding:0 24px;color:#18263a}pre{background:#f1f4f8;padding:16px;overflow:auto;border-radius:8px}table{border-collapse:collapse;width:100%}td,th{text-align:left;padding:10px;border-bottom:1px solid #ddd}a{color:#1769bb}</style>
+<h1>leavs 公共 APT 软件源</h1>
+<p>统一分发 leavs 的 Linux 工具。只需添加一次软件源，即可安装后续上架的新工具。</p>
+<h2>可安装的软件</h2>
+<table><thead><tr><th>包名</th><th>版本</th><th>架构</th><th>下载</th></tr></thead><tbody><!-- PACKAGES --></tbody></table>
+<p>每个工具的系统要求请查看 Release；目前 Camera 支持 Ubuntu 24.04 amd64。提供 arm64 索引不表示所有工具都有 arm64 包。</p>
+<h2>添加软件源</h2>
+<pre>sudo apt-get install -y ca-certificates curl gnupg
+curl -fsSL https://leavs.github.io/apt/apt-key.gpg -o /tmp/leavs-apt-key.gpg
+gpg --show-keys --with-fingerprint /tmp/leavs-apt-key.gpg</pre>
+<p>核对指纹：<code>AFA7 A554 83A3 A25D 6B1C EF37 9307 7871 3952 5089</code>，然后执行：</p>
+<pre>sudo install -d -m 755 /etc/apt/keyrings
+sudo install -m 644 /tmp/leavs-apt-key.gpg /etc/apt/keyrings/leavs-tools.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/leavs-tools.gpg] https://leavs.github.io/apt/ stable main" | sudo tee /etc/apt/sources.list.d/leavs-tools.list
+sudo apt update
+sudo apt install usb-camera-preview</pre>
+<p><a href="https://github.com/leavs/apt">软件源配置及接入新工具</a> · <a href="apt-key.gpg">签名公钥</a> · <a href="dists/stable/InRelease">签名索引</a></p>
+</html>

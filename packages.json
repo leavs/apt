@@ -1,0 +1,8 @@
+{
+  "sources": [
+    {
+      "repository": "leavs/Camera",
+      "packages": ["usb-camera-preview"]
+    }
+  ]
+}
